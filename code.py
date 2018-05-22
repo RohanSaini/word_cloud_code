@@ -16,7 +16,7 @@ d = path.dirname(__file__)
 # read the mask image
 # taken from
 # http://www.stencilry.org/stencils/movies/star%20wars/storm-trooper.gif
-mask = np.array(Image.open(path.join(d, "stormtrooper_mask.png")))
+mask = np.array(Image.open(path.join(d, "rsnamask2.png")))
 
 # movie script of "a new hope"
 # http://www.imsdb.com/scripts/Star-Wars-A-New-Hope.html
@@ -37,9 +37,9 @@ wc = WordCloud(max_words=1000, mask=mask, stopwords=stopwords, margin=10,
 # store default colored image
 default_colors = wc.to_array()
 plt.title("Custom colors")
-plt.imshow(wc.recolor(color_func=grey_color_func, random_state=3),
+plt.imshow(wc.recolor(random_state=3),
            interpolation="bilinear")
-wc.to_file("a_new_hope.png")
+wc.to_file("a_word_cloud.png")
 plt.axis("off")
 plt.figure()
 plt.title("Default colors")
